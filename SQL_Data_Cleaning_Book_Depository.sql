@@ -286,6 +286,7 @@ set genres_cleaned = CASE
     ELSE NULL 
   END
 
+
 --- Scrubbing 'characters' column of special characters
 
 
