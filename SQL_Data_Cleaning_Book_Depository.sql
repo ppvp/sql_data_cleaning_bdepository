@@ -219,7 +219,7 @@ add column ratings_cleaned text
 update "Books_1".book_depository
 set ratings_cleaned = regexp_replace(ratingsbystars, '[^0-9,]', '', 'g')
 
---EXPLAIN
+
 UPDATE "Books_1".book_depository
 SET
   five_stars = CASE WHEN (string_to_array(ratings_cleaned, ',')::int[])[1] IS NOT NULL THEN (string_to_array(ratings_cleaned, ',')::int[])[1] ELSE 0 END,
@@ -243,14 +243,15 @@ alter table "Books_1".book_depository
 add column settings_cleaned text
 
 update "Books_1".book_depository
-set settings_cleaned = CASE WHEN setting <> '' THEN regexp_replace(setting, '[\[\]\'']', '', 'g') ELSE NULL end
+set settings_cleaned = CASE WHEN setting <> '' THEN regexp_replace(setting, '[\[\]\'']', '', 'g') ELSE NULL 
+END
 
 
 --- Scrubbing 'awards' column of special characters
 
 
 SELECT awards,
-  CASE 
+    CASE 
     WHEN awards <> '' THEN TRIM(regexp_replace(awards, '[\[\]\'']', '', 'g'))
     ELSE NULL 
   END
@@ -302,7 +303,7 @@ update "Books_1".book_depository
 set characters_cleaned = CASE 
     WHEN characters <> '' THEN TRIM(regexp_replace(characters, '[\[\]\'']', '', 'g'))
     ELSE NULL 
-  end
+  END
   
   
 --- Dropping unused columns
