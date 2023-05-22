@@ -231,7 +231,12 @@ SET
 
 --- Scrubbing 'setting' column of special characters
  
- 
+ SELECT setting,
+  CASE 
+    WHEN setting <> '' THEN regexp_replace(setting, '[\[\]\'']', '', 'g')
+    ELSE NULL 
+  END
+FROM "Books_1".book_depository;
 
 
 alter table "Books_1".book_depository
