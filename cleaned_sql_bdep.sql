@@ -1,6 +1,6 @@
 /* 
  * 
- *  Data cleaning, formatting, normalizing
+ *  Data cleaning, formatting
  * 
  */
 
