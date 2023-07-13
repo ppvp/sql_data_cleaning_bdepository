@@ -3,7 +3,7 @@
 Dataset used: https://www.kaggle.com/datasets/arnabchaki/goodreads-best-books-ever
 
 Project:
-This set of SQL queries and statements aims to clean, format, and normalize data in a database run on a local instance of PostgreSQL.
+This set of SQL queries and statements aims to clean and format data in a database run on a local instance of PostgreSQL.
 
 1. Formatting dates and populating the table with converted dates
 2. Seeking and deleting improper date column entries
